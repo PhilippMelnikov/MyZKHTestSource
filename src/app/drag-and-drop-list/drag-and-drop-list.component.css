@@ -1,0 +1,7 @@
+md-card{
+  cursor: pointer;
+  cursor: grab;
+}
+md-sidenav-container{
+  padding-top: 120px !important;
+}

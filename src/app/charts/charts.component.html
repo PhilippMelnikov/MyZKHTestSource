@@ -1,0 +1,26 @@
+<md-toolbar color="accent" class="md-toolbar-tools my-toolbar">
+
+  <button md-icon-button [routerLink]="['/home/']">
+			<i class="material-icons">keyboard_backspace</i>
+	</button>
+  <span class="app-title" id="title">Angular Charts</span>
+
+</md-toolbar>
+<md-sidenav-container fullscreen>
+  <md-sidenav #sidenav mode="side" [opened]="true">
+    <h2>Chart type</h2>
+    <md-radio-group [(ngModel)]="chartType">
+      <md-radio-button value="bar">Histogram</md-radio-button>
+      <md-radio-button value="line">Line</md-radio-button>
+    </md-radio-group>
+  </md-sidenav>
+  <div class="my-content">
+    <div class="my-chart">
+      <canvas baseChart width="200" height="200"
+                    [datasets]="chartData"
+                    [options]="chartOptions"
+                    [labels]="chartLabels"
+                    [chartType]="chartType"></canvas>
+    </div>
+  </div>
+</md-sidenav-container>

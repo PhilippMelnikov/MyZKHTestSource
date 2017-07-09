@@ -1,0 +1,16 @@
+md-radio-button{
+  display: block;
+  margin-bottom: 15px;
+}
+.my-content{
+  height: auto;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  align-items: center;
+}
+.my-chart{
+  width: 600px;
+  height: 600px;
+  margin: 115px 15px 0;
+}

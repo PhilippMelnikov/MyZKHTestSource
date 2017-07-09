@@ -1,0 +1,25 @@
+<md-toolbar color="warn" class="md-toolbar-tools my-toolbar">
+
+  <button md-icon-button [routerLink]="['/drag-and-drop-list/']">
+			<i class="material-icons">keyboard_backspace</i>
+	</button>
+  <span class="app-title" id="title">Drag And Drop List</span>
+
+</md-toolbar>
+<md-sidenav-container fullscreen>
+  <div class="my-content">
+    <md-card>
+			<h2>What would you like to put in the list instead?</h2>
+			<form #editItemForm="ngForm">
+			  <table class="full-width" cellspacing="0">
+				  <tr>
+				    <td><md-input-container class="full-width">
+				      <input  name="item" mdInput [(ngModel)]="itemTitle" required >
+				    </md-input-container></td>
+				  </tr>
+			  </table>
+			  <button class="submit-add-button" md-raised-button (click)="updateItem()" [routerLink]="['/drag-and-drop-list/']" [disabled]="!editItemForm.valid" >Update</button>
+			</form>
+		</md-card>
+  </div>
+</md-sidenav-container>

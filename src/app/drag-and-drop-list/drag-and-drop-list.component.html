@@ -1,0 +1,25 @@
+<md-toolbar color="accent" class="md-toolbar-tools my-toolbar">
+
+  <button md-icon-button [routerLink]="['/home/']">
+			<i class="material-icons">keyboard_backspace</i>
+	</button>
+  <span class="app-title" id="title">Dragula List</span>
+  <span class="fill-space" flex></span>
+  <button md-icon-button (click)="openSnackBar()">
+    <md-icon>help</md-icon>
+  </button>
+
+</md-toolbar>
+<md-sidenav-container fullscreen>
+  <div class="my-content">
+    <div class='wrapper'>
+      <div class='dragula-list-container' [dragula]='"first-bag"' [dragulaModel]='listItems'>
+        <md-card *ngFor="let listItem of listItems" (click)="navigateToEditPage(listItem)">
+          <div class="item-title">
+            {{listItem.title}}
+          </div>
+        </md-card>
+      </div>
+    </div>
+  </div>
+</md-sidenav-container>
