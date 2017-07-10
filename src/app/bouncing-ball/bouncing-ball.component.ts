@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 declare let Velocity: any;
+
 @Component({
   selector: 'app-bouncing-ball',
   templateUrl: './bouncing-ball.component.html',
@@ -29,6 +30,7 @@ export class BouncingBallComponent implements OnInit {
         complete: bounce
       });
     }
+
     bounce();
 
     this.addOnWheel(window, (e) => {
@@ -47,20 +49,20 @@ export class BouncingBallComponent implements OnInit {
       let newDuration = duration + increment;
       if (newDuration >= 50 && newDuration <= 5000) {
         // stop if 0X
-        if(newDuration == 5000){
+        if (newDuration == 5000) {
           Velocity(this.bouncingBall, "pause");
           pause = !pause;
         }
         else{
-          if(pause){
+          if (pause) {
             pause = !pause;
             Velocity(this.bouncingBall, "resume");
           }
         }
-        if(increment > 0){
+        if (increment > 0){
             --speedRate;
         }
-        else{
+        else {
           ++speedRate;
         }
         this.speedIndicator = speedRate + 'X';
@@ -74,9 +76,12 @@ export class BouncingBallComponent implements OnInit {
       if ('onwheel' in document) {
         // IE9+, FF17+
         elem.addEventListener("wheel", handler);
-      } else if ('onmousewheel' in document) {
-        // устаревший вариант события
-        elem.addEventListener("mousewheel", handler);
+      }
+      else {
+        if ('onmousewheel' in document) {
+          // устаревший вариант события
+          elem.addEventListener("mousewheel", handler);
+        }
       }
     }
   }

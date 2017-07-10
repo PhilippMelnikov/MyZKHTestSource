@@ -16,9 +16,9 @@ import { BouncingBallComponent } from './bouncing-ball/bouncing-ball.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { DragAndDropListService } from './drag-and-drop-list-service/drag-and-drop-list.service';
 import { DragulaListComponent } from './dragula-list/dragula-list.component';
 import { DragulaListEditComponent } from './dragula-list-edit/dragula-list-edit.component';
+import { DragulaListService } from './dragula-list-service/dragula-list.service';
 
 
 @NgModule({
@@ -47,7 +47,7 @@ import { DragulaListEditComponent } from './dragula-list-edit/dragula-list-edit.
     DragulaModule,
     ChartsModule
   ],
-  providers: [DragulaService, DragAndDropListService],
+  providers: [DragulaService, DragulaListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

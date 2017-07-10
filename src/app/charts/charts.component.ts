@@ -8,27 +8,28 @@ import { Component, OnInit } from '@angular/core';
 export class ChartsComponent implements OnInit {
   chartType: string = "bar";
 
+  constructor() {
+  }
+
   ngOnInit() {
   }
 
-  public chartOptions:any = {
+  public chartOptions: any = {
     responsive: true,
     scales: {
-        yAxes: [{
-            display: true,
-            ticks: {
-                suggestedMin: 0
-            }
-        }]
+      yAxes: [{
+        display: true,
+        ticks: {
+          suggestedMin: 0
+        }
+      }]
     }
   };
 
-  public chartData:Array<any> = [
-   {data: [5, 10, 7, 11, 5, 13, 10, 5, 11, 5, 12, 8], label: 'ZKH Dataset'}
- ];
+  public chartData: Array<any> = [
+    { data: [5, 10, 7, 11, 5, 13, 10, 5, 11, 5, 12, 8], label: 'ZKH Dataset' }
+  ];
 
-  public chartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  constructor() { }
-
+  public chartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 }

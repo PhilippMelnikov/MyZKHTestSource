@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { listItem } from '../models/list-item.model'
 
 @Injectable()
-export class DragAndDropListService {
+export class DragulaListService {
   listItems: listItem[] = [
     {
       id: 1,
@@ -28,7 +28,7 @@ export class DragAndDropListService {
 
   constructor() {
     let items = localStorage.getItem("listItems");
-    if(items){
+    if (items) {
       this.listItems = JSON.parse(items);
     }
   }
@@ -40,12 +40,10 @@ export class DragAndDropListService {
     this.listItems = items;
   }
   saveItem(id: number, newTitle: string) {
-
-    let items = this.listItems.filter((item)=>{
+    let items = this.listItems.filter((item) => {
       return item.id == id;
     });
     items[0].title = newTitle;
     localStorage.setItem("listItems", JSON.stringify(this.listItems));
-
   }
 }

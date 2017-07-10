@@ -1,30 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }  from '@angular/router';
 import { DragulaService } from 'ng2-dragula/ng2-dragula';
-import { DragAndDropListService } from '../drag-and-drop-list-service/drag-and-drop-list.service';
+import { DragulaListService } from '../dragula-list-service/dragula-list.service';
 import {MdSnackBar} from '@angular/material';
-
+import { listItem } from '../models/list-item.model'
 @Component({
   selector: 'app-dragula-list',
   templateUrl: './dragula-list.component.html',
   styleUrls: ['./dragula-list.component.css']
 })
 export class DragulaListComponent implements OnInit {
-  listItems: { id: number, title: string }[];
+  listItems: listItem[];
 
   constructor(private router: Router,
-    private dragAndDropListService: DragAndDropListService,
+    private dragulaListService: DragulaListService,
     private dragulaService: DragulaService,
     public snackBar: MdSnackBar) {
 
-      this.listItems = this.dragAndDropListService.getItems();
+    this.listItems = this.dragulaListService.getItems();
 
-      dragulaService.drag.subscribe((value) => {
-        this.onDrag(value.slice(1));
-      });
-      dragulaService.drop.subscribe((value) => {
-        this.onDrop(value.slice(1));
-      });
+    dragulaService.drag.subscribe((value) => {
+      this.onDrag(value.slice(1));
+    });
+    dragulaService.drop.subscribe((value) => {
+      this.onDrop(value.slice(1));
+    });
   }
 
   ngOnInit() {
@@ -54,10 +54,8 @@ export class DragulaListComponent implements OnInit {
   onDrop(args) {
     let [e, el] = args;
     this.addClass(e, 'ex-moved');
-    this.dragAndDropListService.setItems(this.listItems);
+    this.dragulaListService.setItems(this.listItems);
   }
-
-
 
   openSnackBar() {
     let message = "Click on item in order to edit it's content.";
