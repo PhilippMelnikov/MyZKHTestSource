@@ -1,11 +1,10 @@
-.submit-add-button{
+.submit-button{
 	width: 180px;
-	// margin: 15px auto;
+	margin: 15px auto;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
-          margin-top: 15px;
 }
 md-card{
   width: 530px;

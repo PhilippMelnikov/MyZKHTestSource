@@ -9,7 +9,6 @@ html, body, app-root, md-sidenav-container, .my-content {
 }
 html{
   overflow: hidden;
-  margin-top: 64px !important;
 }
 body{
   padding: 0;
@@ -52,8 +51,6 @@ md-sidenav{
 }
 
 md-card{
-  background-color: #fff;
-  width: 80%;
   margin: 0 auto 25px;
 }
 .full-width{

@@ -1,9 +1,9 @@
 <md-toolbar color="warn" class="md-toolbar-tools my-toolbar">
 
-  <button md-icon-button [routerLink]="['/drag-and-drop-list/']">
+  <button md-icon-button [routerLink]="['/dragula-list/']">
 			<i class="material-icons">keyboard_backspace</i>
 	</button>
-  <span class="app-title" id="title">Drag And Drop List</span>
+  <span class="app-title" id="title">Dragula List</span>
 
 </md-toolbar>
 <md-sidenav-container fullscreen>
@@ -18,7 +18,7 @@
 				    </md-input-container></td>
 				  </tr>
 			  </table>
-			  <button class="submit-add-button" md-raised-button (click)="updateItem()" [routerLink]="['/drag-and-drop-list/']" [disabled]="!editItemForm.valid" >Update</button>
+			  <button class="submit-button" md-raised-button (click)="saveItem()" [routerLink]="['/dragula-list/']" [disabled]="!editItemForm.valid" >Save</button>
 			</form>
 		</md-card>
   </div>

@@ -5,18 +5,26 @@ import { DragAndDropListService } from '../drag-and-drop-list-service/drag-and-d
 import {MdSnackBar} from '@angular/material';
 
 @Component({
-  selector: 'app-drag-and-drop-list',
-  templateUrl: './drag-and-drop-list.component.html',
-  styleUrls: ['./drag-and-drop-list.component.css']
+  selector: 'app-dragula-list',
+  templateUrl: './dragula-list.component.html',
+  styleUrls: ['./dragula-list.component.css']
 })
-export class DragAndDropListComponent implements OnInit {
+export class DragulaListComponent implements OnInit {
   listItems: { id: number, title: string }[];
 
-  constructor(private router: Router, private dragAndDropListService: DragAndDropListService, private dragulaService: DragulaService, public snackBar: MdSnackBar) {
-    this.listItems = this.dragAndDropListService.getItems();
-    dragulaService.drop.subscribe((value) => {
-      this.onDrop(value.slice(1));
-    });
+  constructor(private router: Router,
+    private dragAndDropListService: DragAndDropListService,
+    private dragulaService: DragulaService,
+    public snackBar: MdSnackBar) {
+
+      this.listItems = this.dragAndDropListService.getItems();
+
+      dragulaService.drag.subscribe((value) => {
+        this.onDrag(value.slice(1));
+      });
+      dragulaService.drop.subscribe((value) => {
+        this.onDrop(value.slice(1));
+      });
   }
 
   ngOnInit() {
@@ -38,16 +46,21 @@ export class DragAndDropListComponent implements OnInit {
     }
   }
 
-  onDrop(args) {
+  private onDrag(args) {
     let [e, el] = args;
-    this.dragAndDropListService.setItems(this.listItems);
-  }
-  navigateToEditPage(listItem: { id: number, title: string }){
-    this.router.navigate(['/edit-list-item/', listItem.id, listItem.title]);
+    this.removeClass(e, 'ex-moved');
   }
 
+  onDrop(args) {
+    let [e, el] = args;
+    this.addClass(e, 'ex-moved');
+    this.dragAndDropListService.setItems(this.listItems);
+  }
+
+
+
   openSnackBar() {
-    let message = "Click an item in order to edit it's content.";
+    let message = "Click on item in order to edit it's content.";
     let action = ""
     this.snackBar.open(message, action, {
       duration: 3000,

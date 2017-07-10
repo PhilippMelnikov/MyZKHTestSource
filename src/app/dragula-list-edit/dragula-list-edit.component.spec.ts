@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DragAndDropListComponent } from './drag-and-drop-list.component';
+import { DragulaListEditComponent } from './dragula-list-edit.component';
 
-describe('DragAndDropListComponent', () => {
-  let component: DragAndDropListComponent;
-  let fixture: ComponentFixture<DragAndDropListComponent>;
+describe('DragulaListEditComponent', () => {
+  let component: DragulaListEditComponent;
+  let fixture: ComponentFixture<DragulaListEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DragAndDropListComponent ]
+      declarations: [ DragulaListEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DragAndDropListComponent);
+    fixture = TestBed.createComponent(DragulaListEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
